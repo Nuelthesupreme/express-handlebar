@@ -1,0 +1,23 @@
+{
+  "name": "express-handlebar",
+  "version": "1.0.0",
+  "description": "### Overview",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nuelthesupreme/express-handlebar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nuelthesupreme/express-handlebar/issues"
+  },
+  "homepage": "https://github.com/Nuelthesupreme/express-handlebar#readme",
+  "directories": {
+    "doc": "docs"
+  }
+}
