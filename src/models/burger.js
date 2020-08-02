@@ -1,9 +1,26 @@
 const orm = require("../config/orm");
 
-const takeaway = (cb) => {
-  orm.getAll(cb);
-};
+const burger = {
+  all: (cb) => {
+    orm.all("burgers", (res) => {
+      cb(res);
+    });
+  },
+  create: function(name, cb) {
+    orm.create("burgers", "burger_name", name, cb); 
+  },
+  update: function(id, cb) {
+    orm.update(id, (res) => {
+      cb(res);
+    });
+  
+  }
 
+}
+
+module.exports = burger;
+
+/*
 const devoured = (cb) => {
   orm.getAll("devoured_foods", cb);
 };
@@ -17,10 +34,11 @@ const devour = (id, cb) => {
 };
 
 const food = {
-  takeaway,
+  getAllBurgers,
   devoured,
   restock,
   devour,
 };
 
 module.exports = food;
+*/

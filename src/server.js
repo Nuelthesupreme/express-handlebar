@@ -1,9 +1,9 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
+var routes = require("./controllers/burgersController");
 const path = require("path");
 
-const htmlRoutes = require("./routes/html-routes");
-const apiRoutes = require("./routes/api-routes");
+
 
 const app = express();
 
@@ -18,8 +18,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "../views/images")));
 
-app.use(htmlRoutes);
-app.use(apiRoutes);
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Server listening on: http://localhost:${PORT}`);

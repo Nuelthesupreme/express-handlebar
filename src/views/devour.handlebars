@@ -20,13 +20,10 @@
 
   <section class="my-4">
     <div class="row">
-      <div class="col-6">
-        <img class="img-fluid" alt="takeaway banner" src="takeawayBanner.png" />
       </div>
       <div class="col-6 align-self-center">
         <form class="form-inline" action="/api/foods" method="POST">
           <div class="form-group mx-sm-3 mb-2">
-            <label for="foodOption" class="mr-2">Add a takeaway option!</label>
             <input type="text" class="form-control" id="foodOption" placeholder="Wigan Kebab" name="food" />
           </div>
           <button type="submit" class="btn btn-success mb-2">
@@ -38,23 +35,31 @@
   </section>
 
   <section>
-    <div class="row">
-      <div class="col-6 text-center">
-        <h3>Takeaway options</h3>
-        <div class="text-center mt-4">
-          {{#each foods}}
-          {{> food/takeaway}}
-          {{/each}}
-        </div>
-      </div>
-      <div class="col-6 text-center">
-        <h3>Devoured Food</h3>
-        <div class="text-center mt-4">
-          {{#each devouredFoods}}
-          {{> food/devoured}}
-          {{/each}}
-        </div>
-      </div>
-    </div>
+ 	<div class="col-md-6 text-center" class="task">
+			<div class="row">
+			  {{#each burger_data}}
+			  	{{#unless this.devoured}}
+				<div class="col-md-9 text-center">
+					<pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+				<div class="col-md-3 text-center">
+					<form class="devour-form button-sizeaction="/api/foods:id" method="PUT">
+						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-md-6 text-center" class="task">
+			  {{#each burger_data}}
+			  	{{#if this.devoured}}
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+				{{/if}}
+			  {{/each}}
+		</div>
   </section>
 </div>
